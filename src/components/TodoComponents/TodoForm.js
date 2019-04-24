@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 function TodoForm(props) {
   return (
     <form>
-    <input placeholder="Add to your list."> </input>
-    <button>Add to list</button>
+      <input placeholder="Add Todo Here"/>
+      <button type="submit">Add Todo</button>
     </form>
   );
 }
