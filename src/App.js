@@ -1,6 +1,6 @@
-import React from 'react';
-import TodoList from "./components/TodoComponents/TodoList";
-import TodoForm from "./components/TodoComponents/TodoForm";
+import React from "react";
+// import TodoList from "./components/TodoComponents/TodoList";
+// import TodoForm from "./components/TodoComponents/TodoForm";
 
 const list = [
   {
@@ -25,23 +25,25 @@ const list = [
   }
 ];
 
-  // CCR - component, constructor, render
+// CCR - component, constructor, render
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
   constructor() {
     super();
-    this.state = {
-
-    }
+    this.state = {};
   }
 
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div className="App">
         <h2>Todo List: MVP</h2>
+        <form>
+          <input placeholder="Add to your list." />
+          <button>Add to list</button>
+        </form>
       </div>
     );
   }
