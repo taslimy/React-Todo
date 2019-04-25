@@ -45,6 +45,8 @@ class App extends React.Component {
 
   newToDo = event => {
     event.preventDefault();
+    if ((this.state.task == "")) {return;}
+    event.preventDefault();
     const newToDoItem = {
       task: this.state.task,
       id: Date.now(),
