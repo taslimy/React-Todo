@@ -5,10 +5,10 @@ import React from "react";
 
 
 function TodoList(props){
-  // console.log(props.toDoDo);
+  console.log(props.toDoDo.id);
   return (
 <ul>
-<li>{props.toDoDo.task}</li>
+<li className={props.toDoDo.completed ? "completed": ''} onClick={() => props.toggleComplete (props.toDoDo.id)}>{props.toDoDo.task} </li>
 </ul>
   )
 }

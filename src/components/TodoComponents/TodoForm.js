@@ -2,6 +2,7 @@ import React from "react";
 
 function TodoForm(props) {
   return (
+   
     <form>
       <input
         placeholder="...to do"
@@ -9,8 +10,10 @@ function TodoForm(props) {
         value={props.task}
         onChange={props.handleInputChange}
       />
-      <button onClick={props.newToDo}>Add Todo</button>
-      <button>Clear Completed</button>
+      <div className="form-button">
+      <button className="button" onClick={props.newToDo}>Add Todo</button>
+      <button className="button" onClick={props.removeTodo}>Clear Completed</button>
+      </div>
     </form>
   );
 }

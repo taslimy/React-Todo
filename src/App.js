@@ -49,33 +49,67 @@ class App extends React.Component {
       task: this.state.task,
       id: Date.now(),
       completed: false
-    }
+    };
     this.setState({
-      toDosState: [
-        ...this.state.toDosState, 
-        newToDoItem
-      ],
+      toDosState: [...this.state.toDosState, newToDoItem],
       task: ""
     });
   };
+
+  toggleComplete = id => {
+    const updatedList = this.state.toDosState.map(item => {
+      if (item.id === id) return { ...item, completed: !item.completed };
+      return item;
+    });
+    this.setState({
+      toDosState: updatedList
+    });
+    console.log(updatedList);
+  };
+
+  // returning the !item.completed. with filter
+  removeTodo = event => {
+    event.preventDefault();
+    const removeMe = this.state.toDosState.filter(item => {
+      return !item.completed;
+    });
+    this.setState({
+      toDosState: removeMe
+    });
+    console.log(removeMe);
+  };
+
+  /* WTF IS A SPREAD OPERATOR?
+    my example 
+    const oldObject = {
+    name: 'Max'
+    };
+
+    const newObject = {
+    ...oldObject,
+    age: 28
+    };
+    newObject would then be
+    {
+    name: 'Max',
+    age: 28
+    }
+   */
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div className="App">
-        <h2>Todo List: MVP</h2>
+      <div className="form-wrapper">
+        <h2>Todo List</h2>
         {this.state.toDosState.map(eachToDos => (
-          <TodoList
-            key={eachToDos.id}
-            toDoDo={eachToDos}
-            banannaToDoList={this.state.toDosOnState}
-          />
+          <TodoList toggleComplete={this.toggleComplete} toDoDo={eachToDos} />
         ))}
 
         <TodoForm
           newToDo={this.newToDo}
           handleInputChange={this.handleInputChange}
           task={this.state.task} // these are the pops args.
+          removeTodo={this.removeTodo}
         />
       </div>
     );
