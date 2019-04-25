@@ -2,14 +2,15 @@
 // feel free to change this component.js into TodoList.js
 
 import React from "react";
-import Todo from './Todo';
 
-function TodoList(props) {
+
+function TodoList(props){
+  // console.log(props.toDoDo);
   return (
-    <ul>
-        <Todo />
-   </ul>
-  );
+<ul>
+<li>{props.toDoDo.task}</li>
+</ul>
+  )
 }
 
  export default TodoList;

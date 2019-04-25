@@ -1,10 +1,13 @@
 import React from "react";
 
 
-function Todo(props) {
+function Todo() {
   return (
-    <li>This is to test the list from Todo JS.</li>
+   <div>
+     test
+     </div>
   );
 }
 
 export default Todo;
+
